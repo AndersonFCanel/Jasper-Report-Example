@@ -154,6 +154,27 @@ public class JasperCustomReport {
         return null;
     }
 
+    public byte[] exportReportToPdf(Map<String, Object> params,String reportPath,String dataSourceKey, boolean withBeanDataSource) throws JRException {
+        try {
+            JasperPrint jasperPrint=null;
+            jasperReport = JasperReportUtil.getCompiledReport(reportPath);
+            if (jasperReport != null) {
+                if(params.get(dataSourceKey)!=null){
+                    JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource((Collection)params.get(dataSourceKey));
+                    //params.put(dataSourceKey, beanCollectionDataSource);
+
+                    jasperPrint = JasperFillManager.fillReport(jasperReport, params, beanCollectionDataSource);
+                            //new JRBeanCollectionDataSource((Collection) params.get(dataSourceKey))
+                            //new JRMapCollectionDataSource((Collection) params.get(dataSourceKey))
+                   // );
+                }
+            }
+            return JasperExportManager.exportReportToPdf(jasperPrint);
+        } catch (Exception e) {
+            log.info(""+e.getMessage());}
+        return null;
+    }
+
     /**
      * Common method for print a XLS report
      */

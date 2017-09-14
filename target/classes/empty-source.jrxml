@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="empty-source" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5e632259-9924-4479-a6dd-25bc73540d74">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="myDataSource" uuid="6d4cdd6b-fbf8-45ce-a1e1-11ae249087d5">
+		<field name="name" class="java.lang.String"/>
+		<field name="roll" class="java.lang.String"/>
+		<field name="branch" class="java.lang.String"/>
+		<field name="mob" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="myDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
+	<parameter name="titleFromJavaCode" class="java.lang.String" isForPrompting="false"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="73" y="2" width="100" height="20" uuid="f387b038-e0ef-4569-8e97-52a04b767e6f"/>
+				<text><![CDATA[name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="241" y="2" width="100" height="20" uuid="9d1e9bfa-8d1d-441c-b007-7d097ad9670d"/>
+				<text><![CDATA[roll]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="2" width="100" height="20" uuid="57218013-3051-401f-834f-6cbdb6ba9e3a"/>
+				<text><![CDATA[mob]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<componentElement>
+				<reportElement x="37" y="16" width="479" height="50" uuid="4df86b7a-b6bb-4d36-8315-d6987507bfb0"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="myDataSource" uuid="12c66025-0651-41f7-87fc-1b3266c9aa17">
+						<dataSourceExpression><![CDATA[$P{myDataSource}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="50" width="479">
+						<textField>
+							<reportElement x="36" y="13" width="100" height="20" uuid="737909d7-6c19-4c04-bcac-6896aa963d9e"/>
+							<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="204" y="17" width="100" height="20" uuid="26290c4c-072a-43ab-8e3b-578408f56653"/>
+							<textFieldExpression><![CDATA[$F{roll}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="378" y="15" width="100" height="20" uuid="d35abfcd-fd96-4e75-ae5c-34829d82bbe4"/>
+							<textFieldExpression><![CDATA[$F{mob}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

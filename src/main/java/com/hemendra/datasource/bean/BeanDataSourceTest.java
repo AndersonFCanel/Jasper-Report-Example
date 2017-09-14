@@ -1,4 +1,4 @@
-package com.hemendra.datasource.empty;
+package com.hemendra.datasource.bean;
 
 import com.hemendra.Student;
 import com.hemendra.util.ExportFile;
@@ -12,8 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EmptyDataSourceTest {
-    private static final String EMPTY_DATASOURCE_JRXML = "empty-source.jrxml";
+public class BeanDataSourceTest {
+    private static final String BEAN_DATASOURCE_JRXML = "bean-datasource.jrxml";
     public static void main(String[] args) throws JRException, IOException, ClassNotFoundException, SQLException {
         List<Map<String, Object>> strings = new ArrayList<>();
         Map<String, Object> parameters = new HashMap<String, Object>();
@@ -30,12 +30,13 @@ public class EmptyDataSourceTest {
             studentList.add(student);
         }
 
-        parameters.put("myDataSource", studentList);
+        parameters.put("reportTitle", "This is the Example Of Bean DataSource!!");
+        parameters.put("beanDataSource", studentList);
 
         JasperCustomReport jasperCustomReport = new JasperCustomReport();
-        byte[] anythings = jasperCustomReport.exportReportToPdf(parameters, EMPTY_DATASOURCE_JRXML, "myDataSource");
+        byte[] anythings = jasperCustomReport.exportReportToPdf(parameters, BEAN_DATASOURCE_JRXML, "beanDataSource", true);
 
-        ExportFile.exportFile(anythings, "empty-datasource-example.pdf");
+        ExportFile.exportFile(anythings, "bean-datasource-example.pdf");
 
         System.out.println(anythings);
     }
