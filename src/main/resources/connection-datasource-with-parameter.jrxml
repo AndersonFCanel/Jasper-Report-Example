@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="connection-datasource" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="add0af52-871e-4a6b-bd01-048fcc90802c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="taskId" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from act_ru_task where id_ = $P{taskId}]]>
+	</queryString>
+	<field name="id_" class="java.lang.String"/>
+	<field name="rev_" class="java.lang.Integer"/>
+	<field name="execution_id_" class="java.lang.String"/>
+	<field name="proc_inst_id_" class="java.lang.String"/>
+	<field name="proc_def_id_" class="java.lang.String"/>
+	<field name="case_execution_id_" class="java.lang.String"/>
+	<field name="case_inst_id_" class="java.lang.String"/>
+	<field name="case_def_id_" class="java.lang.String"/>
+	<field name="name_" class="java.lang.String"/>
+	<field name="parent_task_id_" class="java.lang.String"/>
+	<field name="description_" class="java.lang.String"/>
+	<field name="task_def_key_" class="java.lang.String"/>
+	<field name="owner_" class="java.lang.String"/>
+	<field name="assignee_" class="java.lang.String"/>
+	<field name="delegation_" class="java.lang.String"/>
+	<field name="priority_" class="java.lang.Integer"/>
+	<field name="create_time_" class="java.sql.Timestamp"/>
+	<field name="due_date_" class="java.sql.Timestamp"/>
+	<field name="follow_up_date_" class="java.sql.Timestamp"/>
+	<field name="suspension_state_" class="java.lang.Integer"/>
+	<field name="tenant_id_" class="java.lang.String"/>
+	<field name="readable_proc_inst_id_" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="200" height="20" uuid="492487d5-7d5f-40b8-bbc5-2c7344a3f225"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[id_]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="100" height="20" uuid="2757349f-c430-4121-9d83-311cb5381345"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[rev_]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="414" y="0" width="141" height="20" uuid="a2c7bb64-2750-4a16-ad38-a9b2614d1366"/>
+				<text><![CDATA[name_]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="200" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="7c92ca4a-e53e-430d-9b42-e3cf89893ff1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id_}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="200" y="0" width="100" height="20" uuid="fd8ef7bf-c5d4-4466-9ee7-ab82450a37d1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{rev_}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="414" y="0" width="141" height="20" uuid="e6bd24b1-7038-4f59-9c6d-558205f29f88"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{name_}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
