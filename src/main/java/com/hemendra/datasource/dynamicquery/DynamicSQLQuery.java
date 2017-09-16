@@ -1,17 +1,14 @@
 package com.hemendra.datasource.dynamicquery;
 
 import com.hemendra.util.ExportFile;
-import com.hemendra.util.ImportJRXMLFile;
-import com.hemendra.util.JasperReportUtil;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JRDesignField;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -22,7 +19,7 @@ import java.util.HashMap;
  */
 public class DynamicSQLQuery {
     private static final String JRXML_FILE= "jasper-dynamic-query.jrxml";
-    private static final String SQL_QUERY = "SELECT actor_id, first_name, last_name, last_update FROM actor";
+    private static final String SQL_QUERY = "SELECT actor_id, first_name, last_name, last_update, last_name as kadali FROM actor";
     public static void main(String[] args) throws IOException, JRException, SQLException {
 
         //Get the File
@@ -34,6 +31,12 @@ public class DynamicSQLQuery {
         //Set Query to the JRXML
         JRDesignQuery jrDesignQuery = generateJasperQuery(SQL_QUERY);
         jrxmlDesign.setQuery(jrDesignQuery);
+
+        JRDesignField jrDesignField = new JRDesignField();
+        jrDesignField.setName("kadali");
+        jrDesignField.setValueClass(String.class);
+
+        jrxmlDesign.addField(jrDesignField);
 
         //Compile the report - Lifecycle:2
         JasperReport jasperReport = JasperCompileManager.compileReport(jrxmlDesign);
