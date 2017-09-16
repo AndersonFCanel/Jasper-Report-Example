@@ -158,6 +158,7 @@ public class JasperCustomReport {
         try {
             JasperPrint jasperPrint=null;
             jasperReport = JasperReportUtil.getCompiledReport(reportPath);
+
             if (jasperReport != null) {
                 if(params.get(dataSourceKey)!=null){
                     JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource((Collection)params.get(dataSourceKey));
@@ -181,6 +182,7 @@ public class JasperCustomReport {
     public byte[]  exportReportToXLS(Map<String, Object> params,String reportPath,String dataSourceKey) throws JRException, IOException {
 
         jasperReport = JasperReportUtil.getCompiledReport(reportPath);
+
         JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource((Collection)params.get(dataSourceKey));
         params.put(dataSourceKey, beanCollectionDataSource);
         JasperPrint jasperPrint = null;
